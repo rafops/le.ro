@@ -1,0 +1,7 @@
+class Dictionary
+  @@dictionary = ('a'..'z').to_a + ('A'..'Z').to_a + (0..9).to_a
+
+  def self.translate
+    puts @@dictionary.inspect
+  end
+end

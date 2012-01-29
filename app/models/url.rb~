@@ -1,0 +1,6 @@
+class Url
+  include MongoMapper::Document
+
+  key :origin, String, :required => true
+  key :destination, String, :required => true
+end
