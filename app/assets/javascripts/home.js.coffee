@@ -39,21 +39,25 @@ jQuery ->
     k_code = if e.keyCode then e.keyCode else e.charCode
     console.log 'k_code = ' + k_code
     HomeLib['fsend']() if HomeLib['d_url_is_empty']() && (k_code==17 || k_code==224)
-
-  HomeLib['s_url'].bind 'blur', (e) ->
+  .bind 'blur', (e) ->
     console.log 'blur...'
     return false if HomeLib['flock'] == true
     HomeLib['fsend']() if HomeLib['d_url_is_empty']()
-
-  HomeLib['s_url'].bind 'change', (e) ->
+  .bind 'change', (e) ->
     console.log 'change...'
     HomeLib['d_url'].val('') unless HomeLib['flock'] == true
+  .bind 'click', (e) ->
+    jQuery(this).select()
+
+  HomeLib['d_url'].bind 'click', (e) ->
+    jQuery(this).select()
+  .bind 'focus', (e) ->
+    HomeLib['s_url'].focus() if HomeLib['d_url_is_empty']()
 
   HomeLib['sform'].bind 'ajax:beforeSend', () ->
     console.log 'ajax:beforeSend...'
     HomeLib['flock'] = true
-
-  HomeLib['sform'].bind 'ajax:success', (event, data, status, xhr) ->
+  .bind 'ajax:success', (event, data, status, xhr) ->
     console.log 'ajax:success...'
     HomeLib['d_url'].val(HomeLib['r_url'].val() + data['s'])
     HomeLib['d_url'].focus().select()

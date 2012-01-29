@@ -1,3 +1,7 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body { background-color: tomato; text-align: center; padding-top: 100px; }
+input { padding: 25px; margin: 25px; width: 90%; border: 0px; color: white; font-size: 2em; font-family: sans-serif; text-align: center; background-color: tomato; height: 100px; line-height: 100px; }
+#shortened_url { font-weight: bold; color: black; font-size: 4em; }

@@ -1,9 +1,10 @@
 <%= form_for @shortening, remote: true do |f| %>
+  <%= f.label :url, "paste (ctrl+v) or type your fat url here:" %>
   <%= f.text_field :url %>
-  <%= f.submit "Create" %>
 <% end %>
 
 <%= form_tag '#' do |f| %>
+  <%= label_tag :shortened_url, "copy (ctrl+c) your skinny url and enjoy!" %>
   <%= hidden_field_tag :root_url, root_url %>
   <%= text_field_tag :shortened_url %>
 <% end %>
