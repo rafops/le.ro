@@ -27,4 +27,13 @@ class ShorteningTest < ActiveSupport::TestCase
     assert shortening.shortened.length > 0
   end
 
+  test "should return same object id when finding by shortened string after saving the original" do
+    original = Shortening.new
+    original.url = "http://valid.url.com"
+    original.save
+    shortened = 
+    restored = Shortening.find_by_shortened original.shortened
+    assert restored.id == shortened.id
+  end
+
 end

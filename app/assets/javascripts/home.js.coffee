@@ -4,8 +4,8 @@
 
 jQuery ->
   $('#new_shortening').bind 'ajax:success', (event, data, status, xhr) ->
-    alert "ok"
+    $('#shortened_url').val($('#root_url').val() + data['s'])
     true
   $('#new_shortening').bind 'ajax:error', () ->
-    alert "er"
+    $('#shortened_url').val('')
     false

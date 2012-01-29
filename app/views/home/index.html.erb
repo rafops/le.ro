@@ -2,3 +2,8 @@
   <%= f.text_field :url %>
   <%= f.submit "Create" %>
 <% end %>
+
+<%= form_tag '#' do |f| %>
+  <%= hidden_field_tag :root_url, root_url %>
+  <%= text_field_tag :shortened_url %>
+<% end %>
