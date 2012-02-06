@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  layout 'home'
+
   def index
     @shortening = Shortening.new
   end
@@ -10,5 +12,6 @@ class HomeController < ApplicationController
     else
       render :nothing, status: :not_found
     end
+# TODO if canvalized, show canvas instead redirect
   end
 end

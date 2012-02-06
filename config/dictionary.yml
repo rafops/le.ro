@@ -1,0 +1,12 @@
+defaults: &defaults
+  include: [ 10241, 10495 ]
+  exclude: []
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
