@@ -1,5 +1,4 @@
 Lero::Application.routes.draw do
-  get "home/index"
   get ":shortened" => 'home#route'
 
   # The priority is based upon order of creation:
@@ -15,7 +14,7 @@ Lero::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :shortenings
+  resources :shortenings, :only => :create
 
   # Sample resource route with options:
   #   resources :products do

@@ -1,6 +1,0 @@
-class Link
-  include MongoMapper::Document
-
-  key :, String
-  key :out_url,  Integer
-end
