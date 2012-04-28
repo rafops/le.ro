@@ -1,3 +1,7 @@
+# http://notengoenie.com
+# @ ¿ º — « » … § ¶ † ∞ © ® ™ ¥ ¢ € ♩ ♪ ♫ ♬ ¬ ← ↑ → ↓ ↔ ♥  ß ± • ◦ ÷ ∆ ∩ ☒ ☑ ♠ ♣ ♦ .
+# TODO add some nice symbols randomly after the dots
+
 defaults: &defaults
   include: [ 10241, 10495 ]
   exclude: []

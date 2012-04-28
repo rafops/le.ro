@@ -2,5 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body { background-color: tomato; text-align: center; padding-top: 100px; font-family: georgia; }
-input[type='text'] { padding: 10px; margin: 25px; width: 50%; border: 0px; color: black; font-size: 2em; font-family: sans-serif; text-align: center; background-color: white; height: 80px; line-height: 80px; }
+body { background-color: snow; text-align: center; padding-top: 100px; font-family: georgia; }
+label { font-size: 1em; }
+label span { font-weight: bolder; }
+label.warn { color: tomato; }
+input[type='text'] { padding: 10px; margin: 25px; width: 50%; border: 1px dotted gray; color: black; font-size: 2em; font-family: sans-serif; text-align: center; background-color: white; height: 80px; line-height: 80px; }
+#show_shortened { display: none }
