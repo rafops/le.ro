@@ -4,6 +4,7 @@ class Dictionary
   @@maxlength = 8
 
   def self.word_for number
+    raise "Invalid base #{@@base}" if @@base == 0
     word = [].tap do |d|
       while number > 0
         d.unshift number % @@base
