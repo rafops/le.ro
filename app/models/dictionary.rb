@@ -1,6 +1,7 @@
 class Dictionary
   @@alphabet = []
   @@base = 0
+  @@maxlength = 8
 
   def self.word_for number
     word = [].tap do |d|
@@ -14,7 +15,7 @@ class Dictionary
 
   def self.number_for word
     number = 0
-    word.unpack('U*').map { |j| @@alphabet.index j }.reverse.each_with_index { |j,k| number += (@@base ** k) * j }
+    word.to_s.unpack('U*').select { |j| @@alphabet.include? j }.slice(0, @@maxlength).map { |j| @@alphabet.index j }.reverse.each_with_index { |j,k| number += (@@base ** k) * j }
     number
   end
 

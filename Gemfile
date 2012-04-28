@@ -40,4 +40,4 @@ gem 'mongo'
 gem 'bson_ext'
 gem 'mongo_mapper'
 
-gem 'redis-rails'
+gem 'pry-rails'

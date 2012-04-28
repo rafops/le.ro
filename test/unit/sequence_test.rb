@@ -9,7 +9,7 @@ class SequenceTest < ActiveSupport::TestCase
   test "should return a sequential number after calling nextval twice" do
     first = Sequence.nextval_for self.class.to_s
     second = Sequence.nextval_for self.class.to_s
-    assert first + 1 == second
+    assert_equal second, first + 1
   end
 
 end

@@ -26,6 +26,6 @@ class Shortening
   private
 
   def generate_number
-    self.number = Sequence.nextval_for(self.class.to_s)
+    self.number = Sequence.nextval_for(self.class.to_s) if self.number.nil?
   end
 end

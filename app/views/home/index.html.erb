@@ -1,6 +1,6 @@
 <%= form_for @shortening, remote: true do |f| %>
   <%= f.label :url, "paste (<span>ctrl</span>+v) the URL below:".html_safe %><br/>
-  <%= f.text_field :url, { placeholder: "paste (ctrl+v) the URL here" } %>
+  <%= f.text_field :url %>
 <% end %>
 
 <br/>
