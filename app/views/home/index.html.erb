@@ -1,12 +1,20 @@
 <%= form_for @shortening, remote: true do |f| %>
-  <%= f.label :url, "paste (<span>ctrl</span>+v) the URL below:".html_safe %><br/>
+  <%= f.label :url, "paste (<span>ctrl</span>+v) an URL:".html_safe %><br/>
   <%= f.text_field :url %>
 <% end %>
 
 <br/>
 
 <%= form_tag '#', id: 'show_shortened', remote: true do |f| %>
-  <%= label_tag :shortened_url, "copy (<span>ctrl</span>+c) the shortened URL:".html_safe %><br/>
-  <%= hidden_field_tag :root_url, root_url %>
-  <%= text_field_tag :shortened_url %>
+  <div id="char_buttons">
+    <p>click to add some chars:</p>
+    <% @chars.each do |c| %>
+    <div class="char_button"><%= [ c ].pack('U*') %></div>
+    <% end %>
+  </div>
+  <div id="shortened_container">
+    <%= label_tag :shortened_url, "copy (<span>ctrl</span>+c) your new URL:".html_safe %><br/>
+    <%= hidden_field_tag :root_url, root_url %>
+    <%= text_field_tag :shortened_url %>
+  </div>
 <% end %>

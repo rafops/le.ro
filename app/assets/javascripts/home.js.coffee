@@ -47,6 +47,11 @@ jQuery ->
   .bind 'focus', (e) ->
     HomeLib['s_url'].focus() if HomeLib['d_url_is_empty']()
 
+  jQuery('div.char_button').each (i,e) ->
+    jQuery(this).click ->
+      HomeLib['d_url'].val(HomeLib['d_url'].val() + jQuery(this).text())
+      HomeLib['d_url'].focus().select()
+
   HomeLib['nform'].bind 'ajax:beforeSend', () ->
     HomeLib['nform'].fadeTo(100, 0.4)
   .bind 'ajax:success', (event, data, status, xhr) ->
