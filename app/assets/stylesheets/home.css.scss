@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body { background-color: snow; text-align: center; padding-top: 40px; font-family: georgia; }
+#logo { position: absolute; right: 50px; bottom: 50px; font-size: 5em; letter-spacing: -0.1em; line-height: 0.95em; }
 label { font-size: 1em; }
 label span { font-weight: bolder; }
 label.warn { color: tomato; }

@@ -1,3 +1,8 @@
+<div id="logo">
+  <%= [ 10311, 10447, 10495, 10495 ].pack('U*') %><br/>
+  <%= [ 10439, 10447, 10487, 10495 ].pack('U*') %><br/>
+</div>
+
 <%= form_for @shortening, remote: true do |f| %>
   <%= f.label :url, "paste (<span>ctrl</span>+v) an URL:".html_safe %><br/>
   <%= f.text_field :url %>
