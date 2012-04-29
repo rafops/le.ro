@@ -8,13 +8,13 @@ jQuery ->
   HomeLib =
     'nform': jQuery('#new_shortening'),
     's_lab': jQuery('#new_shortening').find('label'),
-    'ismac': navigator.userAgent.indexOf('Mac') > 0,
     'sform': jQuery('#show_shortened'),
     's_url': jQuery('#shortening_url'),
     'r_url': jQuery('#root_url'),
-    'd_url': jQuery('#shortened_url')
+    'd_url': jQuery('#shortened_url'),
+    'paste': false
 
-  if HomeLib['ismac']
+  if navigator.userAgent.indexOf('Mac') > 0
     jQuery('form').find('label').find('span').html('&#8984;')
 
   HomeLib['s_url_is_valid'] = () ->
@@ -31,14 +31,13 @@ jQuery ->
     return HomeLib['s_url_is_valid']() and HomeLib['d_url_is_empty']()
 
   HomeLib['s_url'].bind 'paste', (e) ->
-    HomeLib['s_url'].val('') # TEST THIS!
+    HomeLib['paste'] = true
+    HomeLib['s_url'].val('')
   .bind 'keyup', (e) ->
-    if jQuery(this).val().length > 0
-      if HomeLib['s_url_is_valid']()
-        HomeLib['s_lab'].removeClass('warn')
-      else
-        HomeLib['s_lab'].addClass('warn')
-    HomeLib['nform'].submit()
+    if HomeLib['paste'] == true || e.keyCode == '13'
+      HomeLib['nform'].submit()
+  .bind 'blur', (e) ->
+    HomeLib['nform'].submit() if HomeLib['paste'] == false
   .bind 'click', (e) ->
     jQuery(this).select()
 
