@@ -1,8 +1,8 @@
 Lero::Application.routes.draw do
   get "canvas/index"
 
-  get ':shortened' => 'home#route', :format => false
-  get 'u/*url' => 'canvas#index', :format => false
+  get ':shortened!' => 'canvas#show', :format => false
+  get ':shortened' => 'shortenings#show', :format => false
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

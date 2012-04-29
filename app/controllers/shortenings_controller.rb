@@ -1,4 +1,14 @@
 class ShorteningsController < ApplicationController
+  before_filter :_shortening_from_shortened, only: :show
+
+  def show
+    if @shortening
+      redirect_to @shortening.url, status: :moved_permanently 
+    else
+      render nothing: true, status: :not_found
+    end
+  end
+
   def create
     @shortening = Shortening.new params[:shortening]
     if @shortening.save

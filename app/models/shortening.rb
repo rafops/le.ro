@@ -10,7 +10,9 @@ class Shortening
   validate :url_validation
 
   def self.find_by_shortened shortened
-    first(conditions: { number: Dictionary.number_for(shortened) })
+    if (number = Dictionary.number_for shortened) > 0
+      first(conditions: { number: number })
+    end
   end
 
   def shortened
