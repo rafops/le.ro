@@ -17,6 +17,7 @@ Lero::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  resources :customers, :only => [ :new, :create, :edit, :update ]
   resources :shortenings, :only => :create
 
   # Sample resource route with options:
