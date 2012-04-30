@@ -27,7 +27,7 @@ class ShorteningsController < ApplicationController
 
   def protect_from_self_redirect
     if @shortening and @shortening.url.index(request.env["SERVER_NAME"])
-      redirect_to request.env["SERVER_NAME"]
+      redirect_to root_path
     end
     return false
   end
