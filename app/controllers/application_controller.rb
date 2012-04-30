@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  def _shortening_from_shortened
+  protected
+
+  def shortening_from_shortened
     if params[:shortened] and @shortening = Shortening.find_by_shortened(params[:shortened])
       Visitor.create(number: @shortening.number,
                      remote_addr: request.env["REMOTE_ADDR"],

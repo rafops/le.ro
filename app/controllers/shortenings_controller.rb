@@ -1,5 +1,6 @@
 class ShorteningsController < ApplicationController
-  before_filter :_shortening_from_shortened, only: :show
+  before_filter :shortening_from_shortened, only: :show
+  before_filter :protect_from_self_redirect, only: :show
 
   def show
     if @shortening
@@ -20,5 +21,14 @@ class ShorteningsController < ApplicationController
         render json: @shortening.errors.messages, status: :precondition_failed
       end
     end
+  end
+
+  protected
+
+  def protect_from_self_redirect
+    if @shortening and @shortening.url.index(request.env["SERVER_NAME"])
+      redirect_to request.env["SERVER_NAME"], status: :gone
+    end
+    return false
   end
 end
