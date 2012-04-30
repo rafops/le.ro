@@ -17,15 +17,35 @@ jQuery ->
   if navigator.userAgent.indexOf('Mac') > 0
     jQuery('form').find('label').find('span').html('&#8984;')
 
+  HomeLib['validate_url'] = (v) ->
+    v = "" unless v?
+    a = v.indexOf('://')
+    b = v.indexOf('.')
+    return a > 0 and b > 0 and b > a
+
+  HomeLib['fix_url'] = (v) ->
+    v = "" unless v?
+    a = v.indexOf('://')
+    b = v.indexOf('.')
+    v = ("http://" + v) if b > 0 and a == -1
+    return v
+
   HomeLib['s_url_is_valid'] = () ->
-    j = HomeLib['s_url'].val()
-    return j.indexOf('://') > 0 and j.indexOf('.') > 0
+    HomeLib['validate_url'](HomeLib['s_url'].val())
 
   HomeLib['d_url_is_empty'] = () ->
     j = HomeLib['d_url'].val()
     return j.length == 0
 
-  HomeLib['s_url'].val('').focus()
+  HomeLib['reset'] = () ->
+    if HomeLib['sform'].is(':visible')
+      HomeLib['sform'].fadeOut(100)
+      HomeLib['nform'].fadeTo(100, 1.0)
+    HomeLib['d_url'].val('')
+    HomeLib['s_url'].val('').focus()
+    HomeLib['paste'] = false
+
+  HomeLib['reset']()
 
   HomeLib['nform'].bind 'submit', (e) ->
     return HomeLib['s_url_is_valid']() and HomeLib['d_url_is_empty']()
@@ -34,12 +54,20 @@ jQuery ->
     HomeLib['paste'] = true
     HomeLib['s_url'].val('')
   .bind 'keyup', (e) ->
-    if HomeLib['paste'] == true || e.keyCode == '13'
+    if HomeLib['paste'] == true
+      HomeLib['nform'].submit()
+    if e.keyCode == 13
+      HomeLib['s_url'].val(HomeLib['fix_url'](HomeLib['s_url'].val()))
       HomeLib['nform'].submit()
   .bind 'blur', (e) ->
-    HomeLib['nform'].submit() if HomeLib['paste'] == false
+    if HomeLib['paste'] == false
+      HomeLib['s_url'].val(HomeLib['fix_url'](HomeLib['s_url'].val()))
+      HomeLib['nform'].submit()
   .bind 'click', (e) ->
-    jQuery(this).select()
+    if HomeLib['d_url'].val().length > 0
+      HomeLib['reset']()
+    else
+      jQuery(this).select()
 
   HomeLib['d_url'].bind 'click', (e) ->
     jQuery(this).select()

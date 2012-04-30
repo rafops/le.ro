@@ -1,1 +1,8 @@
 <%= content_tag :iframe, nil, src: @shortening.url %>
+
+<div id="toolbar">
+  <button id="tool">do</button>
+</div>
+
+<!-- iframe if very prohibitive due to XSS protections...
+     download page if very dangerous due malicious URLs... -->

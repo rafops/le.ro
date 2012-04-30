@@ -6,4 +6,8 @@
 
 jQuery ->
   CanvasLib =
-    'iframe': jQuery('iframe')
+    'iframe': jQuery('iframe'),
+    'tool': jQuery('#tool')
+
+  CanvasLib['tool'].click () ->
+    console.log(CanvasLib['iframe'].contents())
