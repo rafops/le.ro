@@ -9,7 +9,7 @@ label span { font-weight: bolder; }
 label.warn { color: tomato; }
 input[type='text'] { padding: 10px; margin: 25px; width: 50%; max-width: 800px; border: 1px dotted gray; color: black; font-size: 2em; font-family: sans-serif; text-align: center; background-color: white; height: 80px; line-height: 80px; }
 #show_shortened { display: none; }
-#char_buttons { width: 550px; margin: 0 auto; }
+#char_buttons { width: 505px; margin: 0 auto; }
 div.char_button { width: 50px; height: 50px; cursor: pointer; border: 1px dotted gray; line-height: 50px; text-align: center; font-size: 3em; margin: 2px; float:left; }
 div.char_button:hover { background-color: white; }
 #shortened_container { clear: left; padding-top: 40px; }
