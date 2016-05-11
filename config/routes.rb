@@ -1,5 +1,5 @@
 Lero::Application.routes.draw do
-  get "canvas/index"
+  match 'go' => 'canvas#index', :format => false
 
   get ':shortened!' => 'canvas#show', :format => false
   get ':shortened' => 'shortenings#show', :format => false

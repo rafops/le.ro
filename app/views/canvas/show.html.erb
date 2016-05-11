@@ -1,8 +1,23 @@
-<%= content_tag :iframe, nil, src: @shortening.url %>
+<!--<body>-->
 
-<div id="toolbar">
+<%#= content_tag :iframe, nil, src: @shortening.url %>
+
+<!--<form target="iframe_canvas" method="post" action="http://stopgamefb.herokuapp.com/"></form>-->
+<%#= form_tag "/go?url=#{@shortening.url}", target: "iframe_canvas", method: "post" %>
+<!--<iframe scrolling="auto" height="100%" frameborder="0" src="javascript:''" name="iframe_canvas" id="iframe_canvas" style="height: 100%;"></iframe>-->
+
+<frameset cols="25%,*">
+  <frame src="/go" />
+  <frame src="http://www.google.com" />
+</frameset> 
+
+<!--<script>
+  $("form").submit();
+</script>-->
+
+<!--<div id="toolbar">
   <button id="tool">do</button>
-</div>
+</div>-->
 
-<!-- iframe if very prohibitive due to XSS protections...
-     download page if very dangerous due malicious URLs... -->
+
+<!-- </body> -->
